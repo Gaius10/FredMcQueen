@@ -63,17 +63,17 @@ LineFollower::LineFollower(
 
     /* Calibração temporaria */
 
-    minValues[0] = 522;
-    minValues[1] = 579;
-    minValues[2] = 517;
-    minValues[3] = 575;
-    minValues[4] = 558;
+    minValues[0] = 486;
+    minValues[1] = 520;
+    minValues[2] = 483;
+    minValues[3] = 524;
+    minValues[4] = 502;
 
-    maxValues[0] = 752;
-    maxValues[1] = 831;
-    maxValues[2] = 765;
-    maxValues[3] = 808;
-    maxValues[4] = 828;
+    maxValues[0] = 790;
+    maxValues[1] = 852;
+    maxValues[2] = 815;
+    maxValues[3] = 827;
+    maxValues[4] = 827;
 }
 
 
@@ -89,5 +89,5 @@ void LineFollower::test()
     Serial.print(analogRead(controlPinR));
     Serial.print(" |  ");
     Serial.print(analogRead(logicPinR));
-    Serial.println();
+    // Serial.println();
 }

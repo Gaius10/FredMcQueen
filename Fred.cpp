@@ -8,6 +8,7 @@ void Fred::katchau()
     
     // followWallPID();
     followLinePID();
+    // motorsController(0.5, 0.5);
     
     // if (lineFollower->online())
     // {
@@ -41,7 +42,7 @@ void Fred::katchau()
     // {
     //     Serial.print("Seguir parede... ");
     //     Serial.println(previousTime);
-    //     followWallPID('l');
+    //     followWallPID();
     // }
 
     do { } while (millis() - previousTime < Fred::SMP_TIME); 
@@ -180,8 +181,23 @@ void Fred::turnOnMaze()
 
 void Fred::motorsController(float referenceL, float referenceR)
 {
+    // tmp
+    // float velL = encoderL->getVelocity(Fred::SMP_TIME);
+    // float velR = encoderR->getVelocity(Fred::SMP_TIME);
+    // float controlSignalL = (referenceL - velL) * 10000;
+    // float controlSignalR = (referenceR - velR) * 10000;
+    // endtmp
+
     float controlSignalL = (referenceL - encoderL->getVelocity(Fred::SMP_TIME)) * 255;
-    float controlSignalR = (referenceR + encoderR->getVelocity(Fred::SMP_TIME)) * 255;
+    float controlSignalR = (referenceR - encoderR->getVelocity(Fred::SMP_TIME)) * 255;
+
+    // Serial.print(velL);
+    // Serial.print("\t");
+    // Serial.print(velR);
+    // Serial.print("\t");
+    // Serial.print(controlSignalL);
+    // Serial.print("\t");
+    // Serial.println(controlSignalR);
 
     motorL->onoff(controlSignalL);
     motorR->onoff(controlSignalR);
@@ -233,9 +249,9 @@ Fred::Fred(
     Serial.begin(9600);
 
     this->lineFollower->enable();
-    this->motorL->onoff(200);
-    this->motorR->onoff(200);
+    motorL->onoff(200);
+    motorR->onoff(200);
     delay(200);
-    this->motorL->onoff(0);
-    this->motorR->onoff(0);
+    motorL->onoff(0);
+    motorR->onoff(0);
 }

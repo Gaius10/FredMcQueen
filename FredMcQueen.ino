@@ -5,7 +5,7 @@ Fred* marquinhos;
 void setup()
 {
     marquinhos = new Fred(
-        6, 5, 9, 10, // Motores
+        6, 5, 10, 9, // Motores
         2, 0, 3, 0, // Encoders
         4, 7, 8, 11, 12, 13, // Ultrassons
         A0, A1, A5, A2, A3, A4 // Seguidor de linha

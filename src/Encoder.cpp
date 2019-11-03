@@ -14,8 +14,7 @@ void Encoder::reset()
 
 void Encoder::updatePulses()
 {
-    this->pulses++;
-    
+    this->pulses++;  
     // if (digitalRead(this->pinCLK) == HIGH) {
     //     if (digitalRead(this->pinDT) == LOW) {
     //         this->pulses--;
